@@ -38,3 +38,12 @@ jobs:
               let count=count-1
             done
             echo "ping success"
+            
+        - name: upload files
+          uses: bxb100/action-upload-webdav@v1
+          with:
+            webdav_address: ${{secrets.address}}
+            webdav_username: ${{secrets.username}}
+            webdav_password: ${{secrets.password}}
+            webdav_upload_path: "/data"
+            files: "./test"
