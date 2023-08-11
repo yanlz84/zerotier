@@ -5,8 +5,8 @@ name: upload to nas
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  # push:
-  #   branches: [ "main" ]
+  push:
+     branches: [ "main" ]
   # pull_request:
   #   branches: [ "main" ]
 
@@ -49,11 +49,13 @@ jobs:
             git clone https://github.com/yanlz84/zerotier zz
             cd zz
             
-        - name: upload files
-          uses: bxb100/action-upload-webdav@v1
+        - name: Upload to WebDAV
+          uses: bxb100/action-upload@main
           with:
-            webdav_address: ${{secrets.ADDRESS}}
-            webdav_username: ${{secrets.USERNAME}}
-            webdav_password: ${{secrets.PASSWORD}}
-            webdav_upload_path: "/Download"
-            files: "/workdir/zz/test"
+            provider: webdav
+            provider_options: |
+              endpoint=${{ secrets.ADDRESS }}
+              username=${{ secrets.USERNAME }}
+              password=${{ secrets.PASSWORD }}
+              root=/Download/
+            include: '/workdir/zz/**'
