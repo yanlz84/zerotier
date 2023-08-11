@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: upload to nas
 
 # Controls when the workflow will run
 on:
@@ -42,8 +42,8 @@ jobs:
         - name: upload files
           uses: bxb100/action-upload-webdav@v1
           with:
-            webdav_address: ${{secrets.address}}
-            webdav_username: ${{secrets.username}}
-            webdav_password: ${{secrets.password}}
-            webdav_upload_path: "/data"
+            webdav_address: ${{secrets.ADDRESS}}
+            webdav_username: ${{secrets.USERNAME}}
+            webdav_password: ${{secrets.PASSWORD}}
+            webdav_upload_path: "/Download"
             files: "./test"
