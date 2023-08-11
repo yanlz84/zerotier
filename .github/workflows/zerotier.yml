@@ -38,14 +38,16 @@ jobs:
               let count=count-1
             done
             echo "ping success"
-            sudo mkdir -p /workdir
-            sudo chown $USER:$GROUPS /workdir
+
 
         - name: Clone source code
-          working-directory: /workdir
+          # working-directory: /workdir
           run: |
-              git clone https://github.com/yanlz84/zerotier zz
-              cd zz
+            sudo mkdir -p /workdir
+            sudo chown $USER:$GROUPS /workdir
+            cd /workdir
+            git clone https://github.com/yanlz84/zerotier zz
+            cd zz
             
         - name: upload files
           uses: bxb100/action-upload-webdav@v1
@@ -54,4 +56,4 @@ jobs:
             webdav_username: ${{secrets.USERNAME}}
             webdav_password: ${{secrets.PASSWORD}}
             webdav_upload_path: "/Download"
-            files: "./workdir/zz/test"
+            files: "/workdir/zz/test"
