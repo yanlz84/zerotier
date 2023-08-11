@@ -38,6 +38,14 @@ jobs:
               let count=count-1
             done
             echo "ping success"
+            sudo mkdir -p /workdir
+            sudo chown $USER:$GROUPS /workdir
+
+        - name: Clone source code
+          working-directory: /workdir
+          run: |
+              git clone https://github.com/yanlz84/zerotier zerotier
+              cd zerotier
             
         - name: upload files
           uses: bxb100/action-upload-webdav@v1
