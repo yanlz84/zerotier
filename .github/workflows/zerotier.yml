@@ -44,8 +44,8 @@ jobs:
         - name: Clone source code
           working-directory: /workdir
           run: |
-              git clone https://github.com/yanlz84/zerotier zerotier
-              cd zerotier
+              git clone https://github.com/yanlz84/zerotier zz
+              cd zz
             
         - name: upload files
           uses: bxb100/action-upload-webdav@v1
