@@ -44,5 +44,5 @@ jobs:
           with:
             python-version: '3.10' 
         - run: |
-            pip install webdav
+            pip install easywebdav
             python wd.py ${{ secrets.ADDRESS }} ${{ secrets.USERNAME }} ${{ secrets.PASSWORD }}
