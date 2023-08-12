@@ -39,23 +39,8 @@ jobs:
             done
             echo "ping success"
 
-
-        - name: Clone source code
-          # working-directory: /workdir
-          run: |
-            sudo mkdir -p /workdir
-            sudo chown $USER:$GROUPS /workdir
-            cd /workdir
-            git clone https://github.com/yanlz84/zerotier zz
-            cd zz
-            
-        - name: Upload to WebDAV
-          uses: bxb100/action-upload@main
+        - uses: actions/checkout@v3
+        - uses: actions/setup-python@v4
           with:
-            provider: webdav
-            provider_options: |
-              endpoint=${{ secrets.ADDRESS }}
-              username=${{ secrets.USERNAME }}
-              password=${{ secrets.PASSWORD }}
-              root=/Download/
-            include: '/workdir/zz/**'
+            python-version: '3.10' 
+        - run: python wd.py ${{ secrets.ADDRESS }} ${{ secrets.USERNAME }} ${{ secrets.PASSWORD }}
