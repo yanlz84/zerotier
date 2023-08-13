@@ -45,7 +45,7 @@ jobs:
           with:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             url: https://a29.gdl.netease.com/CloudGame_netease_setup_pc_x64_1.6.4.0406.exe
-            dir: ./
+            
             
 
 
