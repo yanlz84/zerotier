@@ -1,8 +1,8 @@
 name: Update File
 on:
-  push:
-    branches:
-      - master
+    workflow_dispatch: 
+    push:
+      
 jobs:
   run:
     runs-on: ubuntu-latest
