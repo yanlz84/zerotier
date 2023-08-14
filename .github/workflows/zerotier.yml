@@ -53,3 +53,9 @@ jobs:
             pip install webdav4
             pip install requests
             python web.py ${{ secrets.OPENWRTB }} ${{ secrets.USERNAME }} ${{ secrets.PASSWORD }} ${{ inputs.url }}
+
+        - name: Delete workflow runs
+          uses: yanlz84/delete-workflow-runs@v2.0
+          with:
+              retain_days: 1
+              keep_minimum_runs: 3
