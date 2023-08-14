@@ -12,6 +12,11 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      url:
+        description: 'Download URL'
+        required: true
+        #default: 'false'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -40,19 +45,10 @@ jobs:
             echo "ping success"
 
         - uses: actions/checkout@v3
-
-        - uses: wow-actions/download-upload@v1
-          with:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            url: https://a29.gdl.netease.com/CloudGame_netease_setup_pc_x64_1.6.4.0406.exe
-            dir: download
-            
-
-
-
+        
         - uses: actions/setup-python@v4
           with:
             python-version: '3.10' 
         - run: |
             pip install webdav4
-            python web.py ${{ secrets.OPENWRTB }} ${{ secrets.USERNAME }} ${{ secrets.PASSWORD }}
+            python web.py ${{ secrets.OPENWRTB }} ${{ secrets.USERNAME }} ${{ secrets.PASSWORD }} github.event.inputs.url
