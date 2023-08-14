@@ -52,4 +52,4 @@ jobs:
         - run: |
             pip install webdav4
             pip install requests
-            python web.py ${{ secrets.OPENWRTB }} ${{ secrets.USERNAME }} ${{ secrets.PASSWORD }} github.event.inputs.url
+            python web.py ${{ secrets.OPENWRTB }} ${{ secrets.USERNAME }} ${{ secrets.PASSWORD }} ${{ inputs.url }}
