@@ -13,4 +13,4 @@ client = Client(sys.argv[1], auth=(sys.argv[2], sys.argv[3]))
 #print (client.exists("sdb1/download/test"))
 
 #print(client.ls("", detail=False))
-print(client.upload_file(file_name, "sdb1/download/"+file_name))
+print(client.upload_file(file_name, "sdb1/video/download/"+file_name))

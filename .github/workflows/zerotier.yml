@@ -45,10 +45,11 @@ jobs:
             echo "ping success"
 
         - uses: actions/checkout@v3
-        
+
         - uses: actions/setup-python@v4
           with:
             python-version: '3.10' 
         - run: |
             pip install webdav4
+            pip install requests
             python web.py ${{ secrets.OPENWRTB }} ${{ secrets.USERNAME }} ${{ secrets.PASSWORD }} github.event.inputs.url
