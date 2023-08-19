@@ -14,8 +14,9 @@ with open(filename, 'wb') as f:
     f.write(r.content)
 
 print(filename)
-client = Client(sys.argv[1], auth=(sys.argv[2], sys.argv[3]),verify=False)
+#client = Client(sys.argv[1], auth=(sys.argv[2], sys.argv[3]),verify=False)
 #print (client.exists("sdb1/download/test"))
+client = Client(sys.argv[1], auth=(sys.argv[2], sys.argv[3]))
 print('upload file')
 
 #print(client.ls("", detail=False))
