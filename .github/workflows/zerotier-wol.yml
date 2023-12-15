@@ -49,8 +49,7 @@ jobs:
           with:
             python-version: '3.10' 
         - run: |
-            pip install webdav4
-            pip install requests
+            pip install paramiko
             python wol.py ${{ secrets.OPENWRTB }} ${{ secrets.USERNAME }} ${{ secrets.PASSWORD }} ${{ secrets.ROG_WOL }}
 
         - name: Delete workflow runs
