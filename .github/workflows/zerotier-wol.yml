@@ -51,7 +51,7 @@ jobs:
         - run: |
             pip install webdav4
             pip install requests
-            python wol.py ${{ secrets.OPENWRTB }} ${{ secrets.USERNAME }} ${{ secrets.PASSWORD }} ${{ secrets.ROG-WOL }}
+            python wol.py ${{ secrets.OPENWRTB }} ${{ secrets.USERNAME }} ${{ secrets.PASSWORD }} ${{ secrets.ROG_WOL }}
 
         - name: Delete workflow runs
           uses: Mattraks/delete-workflow-runs@v2
