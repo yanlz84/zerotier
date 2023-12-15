@@ -12,7 +12,7 @@ your_command=sys.argv[3:]
 
 
 # 连接到SSH服务器
-client.connect(your_ssh_server_ip, username=your_username, password=your_password)
+client.connect(your_ssh_server_ip, username=your_username, password=your_password, port=2233)
 
 # 在SSH服务器上执行命令
 stdin, stdout, stderr = client.exec_command(your_command)
