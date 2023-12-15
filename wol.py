@@ -8,7 +8,7 @@ client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 your_ssh_server_ip=sys.argv[1]
 your_username=sys.argv[2]
 your_password=sys.argv[3]
-#your_command=sys.argv[4]
+your_command=sys.argv[4]
 
 # 连接到SSH服务器
 #client.connect(your_ssh_server_ip, username=your_username, password=your_password, port=2233)
